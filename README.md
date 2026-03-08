@@ -1,5 +1,7 @@
 # jots
 
+[![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/StikyPiston/jots)
+
 ## Usage
 
 ### Adding an entry
