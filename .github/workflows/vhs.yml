@@ -1,8 +1,7 @@
 name: vhs
 on:
   push:
-    paths:
-      - vhs.tape
+
 jobs:
   vhs:
     runs-on: macos-latest
