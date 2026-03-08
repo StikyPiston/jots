@@ -15,7 +15,7 @@ jobs:
         run: brew install vhs
       - name: Render VHS tape
         run: vhs vhs.tape -o demo.gif
-      - uses: stefanzweifel/git-auto-commit-action@v4
+      - uses: stefanzweifel/git-auto-commit-action@v7
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         with:
