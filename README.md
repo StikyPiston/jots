@@ -1,6 +1,7 @@
 # jots
 
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/StikyPiston/jots)
+![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/stikypiston/jots/build.yml)
 
 ## Usage
 
