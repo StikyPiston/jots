@@ -3,6 +3,8 @@
 [![Ask DeepWiki](https://deepwiki.com/badge.svg)](https://deepwiki.com/StikyPiston/jots)
 ![GitHub Actions Workflow Status](https://img.shields.io/github/actions/workflow/status/stikypiston/jots/build.yml)
 
+[![asciicast](https://asciinema.org/a/831290.svg)](https://asciinema.org/a/831290)
+
 ## Usage
 
 ### Adding an entry
