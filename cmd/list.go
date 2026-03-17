@@ -11,6 +11,7 @@ import (
 )
 
 var listDate string
+var listAll bool
 
 var listCmd = &cobra.Command{
 	Use:   "list",
@@ -28,6 +29,19 @@ var listCmd = &cobra.Command{
 			}
 		} else {
 			t = time.Now()
+		}
+
+		if listAll {
+			var finalEntries []string
+			entries, err := storage.ScanEntries()
+			if err != nil {
+				return err
+			}
+			for _, entry := range entries {
+				formattedEntry := ui.FormatEntry(entry)
+				finalEntries = append(finalEntries, formattedEntry)
+			}
+			ui.RunPager(finalEntries)
 		}
 
 		df, err := storage.LoadDay(t)
@@ -51,4 +65,5 @@ var listCmd = &cobra.Command{
 func init() {
 	rootCmd.AddCommand(listCmd)
 	listCmd.Flags().StringVarP(&listDate, "date", "d", "", "Specify date to list entries for")
+	listCmd.Flags().BoolVarP(&listAll, "all", "a", false, "List all entries")
 }
