@@ -34,6 +34,11 @@ func (m pagerModel) Update(msg tea.Msg) (tea.Model, tea.Cmd) {
 		m.viewport.Width = msg.Width
 		m.viewport.Height = msg.Height
 		m.viewport.SetContent(m.content)
+	case tea.KeyMsg:
+		switch msg.String() {
+		case "q", "ctrl+c":
+			return m, tea.Quit
+		}
 	}
 
 	m.viewport, cmd = m.viewport.Update(msg)
