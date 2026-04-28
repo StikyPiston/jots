@@ -25,7 +25,7 @@
 
         packages.jots = pkgs.buildGoModule {
           pname = "jots";
-          version = "2026.03.18-b";
+          version = "2026.04.28-b";
 
           src = self;
 
