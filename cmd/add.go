@@ -1,6 +1,8 @@
 package cmd
 
 import (
+	"os"
+	"os/exec"
 	"strings"
 	"time"
 
@@ -92,7 +94,20 @@ var addCmd = &cobra.Command{
 
 		df.Entries = append(df.Entries, entry)
 
-		return storage.SaveDay(now, df)
+		result := storage.SaveDay(now, df)
+
+		// commit git
+		addCmd := exec.Command("git", "-C", storage.BaseDir(), "add", "-A")
+		addCmd.Run()
+
+		message := "add entry" + entry.ID.String()
+		commitCmd := exec.Command("git", "-C", storage.BaseDir(), "commit", "-m", message)
+		commitCmd.Stdout = os.Stdout
+		commitCmd.Stdin = os.Stdin
+		commitCmd.Stderr = os.Stderr
+		commitCmd.Run()
+
+		return result
 	},
 }
 
